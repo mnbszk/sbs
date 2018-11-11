@@ -1,0 +1,15 @@
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring
+    username: spring_app
+    password: secret
+    driverClassName: org.postgresql.Driver
+    # https://www.greptips.com/posts/839/
+    #schema: classpath:schema.sql
+    # https://stackoverflow.com/questions/49438517/why-spring-boot-2-0-application-does-not-run-schema-sql
+    initialization-mode: always
+#  jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    generate-ddl: true

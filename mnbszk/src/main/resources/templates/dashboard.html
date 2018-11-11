@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="~{layout/base}">
+<head>
+	<meta charset="UTF-8">
+	<title>トップページ</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<div role="mail" class="container" layout:fragment="content">
+		<h1 class="page-title">Dashboard</h1>
+		<h1>Hello Spring Security</h1>
+
+		<div th:fragment="logout" sec:authorize="isAuthenticated()">
+		    <p>Logged in user: <span sec:authentication="name"></span></p>
+			<p>
+				Roles: <span sec:authentication="principal.authorities"></span>
+			</p>
+			<div>
+			    <form action="#" th:action="@{/logout}" method="post">
+			        <input type="submit" value="ログアウト" class="btn btn-info" />
+			    </form>
+			</div>
+		</div>
+		
+		<div>
+		  <table class="table">
+		      <tr>
+		          <th>ユーザ名</th>
+		          <th>Eメール</th>
+		          <th>権限</th>
+		      </tr>
+			  <tr th:each="user : ${users}">
+				  <td th:text="${user.username}"></td>
+				  <td th:text="${user.email}"></td>
+				  <td th:text="${user.roleName}"></td>
+			  </tr>
+		  </table>
+		</div>
+		
+	</div>
+	
+	<script type="text/javascript" layout:insert="scripts">
+	</script>
+</body>
+</html>

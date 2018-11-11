@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>404 Error</title>
+</head>
+
+<body>
+	<h1>404</h1>
+	<p>I couldn't find a page you requested.(<span th:text="${path}"></span>)</p>
+	<p th:text="${'Details: ' + message}"></p>
+	<p th:text="${trace}"></p>
+
+	<p><a th:href="@{/}">トップページへ戻る</a>
+</body>
+</html>

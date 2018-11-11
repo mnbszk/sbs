@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>500 Error</title>
+</head>
+
+<body>
+	<h1 th:text="${status}">500</h1>
+	<h1>Ooops! something went wrong!</h1>
+	<p th:text="${error}">エラーメッセージ</p>
+	<p th:text="${'Details: ' + message}"></p>
+	<p th:text="${trace}"></p>
+	<ul th:each="error : ${errors}">
+		<li th:text="${error}"></li>
+	</ul>
+	
+	<p><a th:href="@{/}">トップページへ戻る</a>
+</body>
+</html>

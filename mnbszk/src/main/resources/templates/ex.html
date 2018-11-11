@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	layout:decorate="~{layout/base}">
+<head>
+	<meta charset="UTF-8">
+	<title>トップページ</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<div role="mail" class="container" layout:fragment="content">
+		<h1 class="page-title">Dashboard</h1>
+
+		<div th:fragment="logout" sec:authorize="isAuthenticated()">
+		    <p><span sec:authentication="name"></span></p>
+			<p>
+				権限：[<span sec:authentication="principal.authorities"></span>]
+			</p>
+		</div>
+		
+	</div>
+	
+	<script type="text/javascript" layout:insert="scripts">
+	</script>
+</body>
+</html>
